@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Welcome to my project
 
 ## Project info
 
@@ -13,4 +13,5 @@ This project is built with .
 - React
 - shadcn-ui
 - Tailwind CSS
+- AI tool(Lovable.ai)
 
