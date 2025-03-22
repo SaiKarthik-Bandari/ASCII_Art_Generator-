@@ -31,11 +31,11 @@ const AsciiGenerator: React.FC = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Text className="h-4 w-4 text-apple-blue" />
-              <label htmlFor="text-input" className="text-sm font-medium text-white">
+              <label htmlFor="text-input" className="text-sm font-medium text-black">
                 Your Text
               </label>
             </div>
-            <div className="text-xs px-2 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/70">
+            <div className="text-xs px-2 py-1 rounded-full bg-white/10 backdrop-blur-sm text-black">
               {inputText.length} characters
             </div>
           </div>
@@ -48,7 +48,7 @@ const AsciiGenerator: React.FC = () => {
                 type="text"
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm focus:border-apple-blue transition-all duration-200 shadow-lg text-white"
+                className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm focus:border-apple-blue transition-all duration-200 shadow-lg text-black"
                 placeholder="Type something..."
                 autoComplete="off"
               />
