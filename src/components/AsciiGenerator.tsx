@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { getAsciiStyles, defaultStyle } from '../utils/asciiConverters';
 import StyleSelector from './StyleSelector';
 import AsciiDisplay from './AsciiDisplay';
-import { Sparkles } from 'lucide-react';
+import { Text, Wand2 } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 
 const AsciiGenerator: React.FC = () => {
   const [inputText, setInputText] = useState('Hello world');
@@ -23,30 +24,36 @@ const AsciiGenerator: React.FC = () => {
   }, [inputText, selectedStyle]);
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4">
+    <div className="w-full max-w-3xl mx-auto">
       <div className="space-y-8">
         {/* Input Section */}
-        <div className="w-full space-y-2 animate-fade-in">
+        <div className="w-full space-y-3 animate-fade-in">
           <div className="flex items-center justify-between">
-            <label htmlFor="text-input" className="text-sm font-medium text-muted-foreground">
-              Enter your text
-            </label>
-            <div className="text-xs text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Text className="h-4 w-4 text-apple-blue" />
+              <label htmlFor="text-input" className="text-sm font-medium text-white">
+                Your Text
+              </label>
+            </div>
+            <div className="text-xs px-2 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/70">
               {inputText.length} characters
             </div>
           </div>
           
-          <div className="relative">
-            <input
-              id="text-input"
-              type="text"
-              value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white/80 backdrop-blur-sm focus:ring-2 focus:ring-apple-blue/20 focus:border-apple-blue transition-all duration-200 shadow-sm"
-              placeholder="Type something..."
-              autoComplete="off"
-            />
-            <Sparkles className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground opacity-40" />
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-apple-blue to-purple-600 rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+            <div className="relative">
+              <Input
+                id="text-input"
+                type="text"
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm focus:border-apple-blue transition-all duration-200 shadow-lg text-white"
+                placeholder="Type something..."
+                autoComplete="off"
+              />
+              <Wand2 className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-apple-blue animate-pulse" />
+            </div>
           </div>
         </div>
 

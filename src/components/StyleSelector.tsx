@@ -21,7 +21,12 @@ const StyleSelector: React.FC<StyleSelectorProps> = ({ selectedStyle, onStyleCha
   
   return (
     <div className="w-full">
-      <h3 className="text-sm font-medium text-muted-foreground mb-3">Choose a Style</h3>
+      <h3 className="text-sm font-medium text-white mb-3 flex items-center gap-2">
+        <span className="h-1.5 w-1.5 rounded-full bg-apple-blue"></span>
+        <span className="h-1.5 w-1.5 rounded-full bg-purple-500"></span>
+        <span className="h-1.5 w-1.5 rounded-full bg-pink-500"></span>
+        <span className="ml-1">Choose a Style</span>
+      </h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {styles.map((style) => {
           const IconComponent = styleIcons[style.id as keyof typeof styleIcons];
@@ -31,8 +36,8 @@ const StyleSelector: React.FC<StyleSelectorProps> = ({ selectedStyle, onStyleCha
               key={style.id}
               className={`relative overflow-hidden rounded-xl p-4 text-center transition-all duration-300 hover:scale-105 ${
                 selectedStyle === style.id 
-                  ? 'bg-apple-blue text-white shadow-lg' 
-                  : 'bg-white/80 backdrop-blur-sm hover:bg-white text-apple-dark border border-gray-200'
+                  ? 'bg-gradient-to-br from-apple-blue to-purple-600 text-white shadow-lg border border-white/20' 
+                  : 'bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/10'
               }`}
               onClick={() => onStyleChange(style.id)}
               aria-selected={selectedStyle === style.id}
@@ -43,7 +48,7 @@ const StyleSelector: React.FC<StyleSelectorProps> = ({ selectedStyle, onStyleCha
                 }`}>
                   <IconComponent 
                     className={`h-5 w-5 ${
-                      selectedStyle === style.id ? 'text-white' : 'text-apple-blue'
+                      selectedStyle === style.id ? 'text-white animate-pulse' : 'text-apple-blue'
                     }`} 
                   />
                 </div>
@@ -51,7 +56,7 @@ const StyleSelector: React.FC<StyleSelectorProps> = ({ selectedStyle, onStyleCha
               </div>
               
               {selectedStyle === style.id && (
-                <span className="absolute inset-0 z-0 bg-gradient-to-tr from-apple-blue to-blue-400 opacity-80" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-apple-blue via-purple-600 to-pink-500 rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 z-0"></div>
               )}
             </button>
           );

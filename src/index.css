@@ -93,12 +93,12 @@
 
   /* Define a glass morphism component style */
   .glass-morphism {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20;
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg;
   }
 
   /* Text selection style */
   ::selection {
-    @apply bg-apple-blue/20 text-apple-dark;
+    @apply bg-apple-blue/20 text-white;
   }
 
   /* Custom scrollbar */
@@ -112,7 +112,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 rounded-full hover:bg-gray-400;
+    @apply bg-white/20 rounded-full hover:bg-white/30;
   }
 
   /* ASCII text styles */
@@ -124,9 +124,44 @@
   .shimmer {
     @apply bg-gradient-to-r from-transparent via-white/50 to-transparent bg-[length:200%_100%] animate-text-shimmer;
   }
+  
+  /* Neo brutalism button */
+  .neo-btn {
+    @apply border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 transition-all;
+  }
+  
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-lg border border-white/20 shadow-lg;
+  }
+  
+  /* 3D button effect */
+  .btn-3d {
+    @apply relative before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-white/20 before:rounded-full before:blur-lg before:opacity-0 hover:before:opacity-100 before:transition-opacity;
+  }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
+}
+
+/* Gradient text animation */
+@keyframes gradient-text {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.text-gradient-animated {
+  background: linear-gradient(90deg, #0071e3, #8e2de2, #e73c7e, #ee7752);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-text 5s ease infinite;
+}
+
+/* Floating animation */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
