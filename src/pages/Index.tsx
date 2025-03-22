@@ -23,7 +23,7 @@ const Index = () => {
         {/* Footer section */}
         <footer className="mt-auto pt-10 pb-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground backdrop-blur-sm bg-white/5 px-4 py-2 rounded-full">
+            <p className="text-sm text-black backdrop-blur-sm bg-white/5 px-4 py-2 rounded-full">
               Experience the perfect fusion of art and text. Create, customize, and share.
             </p>
             
@@ -37,7 +37,7 @@ const Index = () => {
               </a>
               <a 
                 href="#" 
-                className="inline-flex items-center text-xs font-medium px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all"
+                className="inline-flex items-center text-xs font-medium px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-black hover:bg-white/20 transition-all"
               >
                 <Star className="w-3.5 h-3.5 mr-1.5" />
                 <span>Star</span>
